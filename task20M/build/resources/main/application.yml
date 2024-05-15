@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: abbtech-module-three-practice
+  security:
+    secret: ${JWT_SECRET_KEY}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/abb_tech
+    username: postgres
+    password: 12345
+    hikari:
+      schema: employee
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    show-sql: true
+  liquibase:
+    enabled: ${LIQUIBASE_ENABLE:true}
+    change-log: classpath:db/changelog/db.changelog.yml
+    default-schema: employee
+server:
+  servlet:
+    context-path: /api/abbtech-module-three-practice
+  port: 8080
+custom:
+  property:
+    name: Name
+    value: 10
